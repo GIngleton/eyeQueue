@@ -7,7 +7,7 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var Schema = require('mongoose.Schema');
 
 
 //Connect to the database
@@ -17,7 +17,7 @@ mongoose.connect('mongodb://test:test@ds023603.mlab.com:23603/eyequeue');
 
 //User Schema
 var UserSchema = Schema({
-  id:Schema.Types.ObjectId,
+  id: Schema.Types.ObjectId,
   username: {
     type: Schema.Types.ObjectId,
     ref: 'Username'
@@ -58,7 +58,7 @@ var UserSchema = Schema({
     type: Schema.Types.ObjectId,
     ref: 'LastName'
   }
-});
+})
 
 //User Model
 var User = new mongoose.model('User', userSchema);
@@ -110,8 +110,9 @@ var mealSchema = Schema({
   restaurantId: {
     type: Schema.Types.ObjectId,
     ref: 'RestaurantId'
-  },
+  }
 })
+
 //Meal Model
 var Meal = mongoose.model('Meal', mealSchema);
 
@@ -145,7 +146,7 @@ var restaurantSchema = Schema({
   priceRange: {
     type: Schema.Types.ObjectId,
     ref: 'PriceRange'
-  },
+  }
 })
 
 //restaurant model
@@ -160,7 +161,7 @@ var Restaurant = mongoose.model('Restaurant', restaurantSchema);
   },
   formattedAddress: String,
   description: String,
-  priceRange: String,
+  priceRange: String
 })
 
 var paths = {
